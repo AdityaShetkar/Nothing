@@ -1,0 +1,34 @@
+
+Spring Security :
+Spring Security is a framework which provides features such as Authentication, Authorization to create secure Java Applications.
+
+
+
+Authentication : 
+Authentication is nothing but the verifying the User, usually it's done with Username and Password. Data used to Authenticate a user are called credentials.
+Java provides 4 different ways to Authenticate a user:
+
+1) Basic Authentication : 
+In Basic Authentication, Browser asks user for Username and Password. It uses HTTP headers(contains Algorithm and type of request) to request Authentication data from the client and to transmit the input data back to the server. HTTP Authentication asks for 3 times before returning an error.
+It transmits data in plain, unencrypted, base64 format. A third party may eavesdrop on the http packets and read the Username and Password.
+
+2) DIGEST Authentication : 
+DIGEST Authentication is similar to Basic Authentication, but with an additional precaution to prevent a third party from doing eavesdrop on the http packets an d easily read the Usermname and Password. 
+In DIGEST Authentication, a message digest of a password is passed rather than original password. A message digest is a calculated value from the original content using a hashing algorithm. Original message cannot be recreated from a message digest.
+
+3) FORM Authentication :
+Java provides a template for layout of the form. Using this default layout allows to do declairative Authentication. The template requires a Username and Password which is obtains using HTML input fields.
+
+4) SSL Authentication : 
+SSL Authentication is used for secure the communication channel. Both client and server are required to identify themselves by providing appropriate credentials. This typically occurs by comparing the client Public Key Certificate(PKC) with a copy stored on the server. This is the most secure form of Authentication since it is difficult to fake a certificate.
+
+
+
+Authorization : 
+Authorization is the process of checking if a user is allowed to access a particular resource on the server. To identify the user, we need to first do Authentication and hence Authentication is first step towards Authorization.
+Authorization may be done in different ways, including :
+
+1) Programmatically controlling access to resources based on individual user's credentials.
+
+2) assigning users into different groups called roles and assigning permissions based on the roles.
+

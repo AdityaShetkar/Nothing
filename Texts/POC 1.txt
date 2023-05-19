@@ -1,0 +1,176 @@
+
+@Entity :
+Entities in JPA are nothing but the POJOs representing data can be persisted in the database. An @Entiy annotation is inherited from javax.persistence.Id. @Entity represents a table is stored in a database. Every instance/object of an entity represents a row in the table.
+
+
+
+@Table :
+The @Table annotation allows you to specify the details of the table that will be used to persist entity in the database. The @Table annotation provides four attributes, allowing you to override the name of the table, it's catelog, and it's schema, and enforce inique constraints on column in the table.
+
+
+
+@Id :
+The @Id annotation is inherited from javax.persistence.Id. To remark as primary key in the current entity.
+
+
+
+@GeneratedValue :
+This annotation is used to specify the primary key generation strategy to use. It has 4 GenerationTypes:
+ 
+Generationtype.AUTO : 
+
+Generationtype.IDENTITY : 
+
+Generationtype.SEQUENCE : 
+
+Generationtype.TABLE : 
+
+@OneToMany :
+@OneToMany annotation is used for mapping. It means one row in a table is mapped to many/multiple rows in another table.
+
+
+
+Cascade :
+In JPA, if any operation applied on an entity then it will perform on that perticular entity only. These operation will not be aaplicable for other related entities. To establish dependency between related entities, JPA provides CascadeType enumerated types that define the cascade operations. Use with Mapping. 
+
+CascadeType.PESIST : In this cascade operation, if parent entity is persisted then all related entity will also be persisted.
+
+CascadeType.MERGE : In this cascade operation, if parent entity is merged then all related entity will also be merged.
+
+CascadeType.DETACH : In this cascade operation, if parent entity is detached then all related entity will also be detached.
+
+CascadeType.REFRESH : In this cascade operation, if parent entity is refreshed then all related entity will also be refreshed.
+
+CascadeType.REMOVE : In this cascade operation, if parent entity is removed then all related entity will also be removed.
+
+CascadeType.All : In this operation, all the above operations can be applied to the related parent entity.
+
+
+
+Fetch/Load : 
+It is use to fetch or load the data. It is classified into two types:
+
+FetchType.EAGER : In Eager fetch/load strategy, if we fetch/load the specific data, it will fetch/load up all associated with it and will store it in a memory. 
+
+FetchType.LAZY : It is a default fetch/load type. In Lazy fetch/load strategy, if we fetch/load the specific data, it will fetch/load up that specific data only. It won't fetch/load associated data until we make an explicit call to it.
+
+
+
+@JoinColumn :
+It is use to create extra column on the table at the time of mapping.
+If we write @JoinColumn with ManyToOne the column will be created on that same entity.
+If we write @JoinColumn with OneToMany the column will be creared on targeted entity.
+If we write @JoinColumn with OneToOne the column will be created on that same table.
+
+
+
+MappedBy :
+MappedBy is used to signals that the key for the relationship is on the other side. In other words It signals that the column of mapping is created on the table of target entity. 
+We can't use MappedBy with ManyToOne.
+If we use MappedBy with ManyToMany then 3 tables will be formed. But while mapping we haven't used MappedBy then 4 tables will be formed.
+
+
+
+@Repository :
+@Repository Annotation is a specialization of @Conponent annotation which is used to indicate that the class provides the mechanism for storage, retrieval, update, delete, and search operation on objects. This annotation is use with DAO classes because DAO classes are respomsible for CRUD operations on database tables.
+
+
+
+@Autowired(Bean Wiring) : 
+@Autowired annotation is used for automatic dependency injection. @Autowired annotation can be applied on variables and methods for autowiring byType. 
+
+
+
+@Service :
+It is used to mark the class as a service provider. @Service annotation is used with classes that provide business functionalities. With this annotation spring boot automatically detect such classes.
+
+
+
+@SpringBootApplication :
+This annotation is used to mark the Main class of a Spring Boot Application. It encapsulates @SpringBootConfiguration, @Configuration, @EnableAutoConfiguration and @ComponentScan annotations with their default attributes.
+
+
+
+HibernateTemplate :
+It is a helper class which is used to simplify the data access code. HibernateTemplate is used for integration of Spring and Hibernate. This class automatically converts HibernateException which is a checked exception into DataAccessException which is an unchecked exception.HibernateTemplate is typically used to  implement data access or business logic services. The central method is execute(), that supports the Hibernate code that implements HibernateCallback interface. 
+
+HibernateTemplate Benefits :
+1) HibernateTemplate simplifies interactions with Hibernate Session.
+2) The functions that are common are siplifies to single method call.
+3) The Session get automatically closed.
+4) The exception get caught automatically caught and are converted to runtime exception.
+
+HibernateCallback :
+It is an interface for Hibernate code. It is used with HibernateTemplate's execution methods. It notify the changes made to the Persistent objects such as save, delete, load etc.
+
+HibernateTemplate Steps :
+	- In Config class Autowired Environment interface(extends PropertiResolver) to get properties from application.properties with getProperty() method of PropertyResolver interface.
+	- Create method private Properties hibernateProperties() where Properties(extends HashTable class) to get hibernate properties from application.properties such as dialect, 	  	  	  	  hbm2ddl, show_sql in form of key and value pair where both key and value are hibernate properties.
+	- Add dependency of apache commons for DataSource's implementation class BasicDataSource.
+	- Create method private DataSource getDataSource() where DataSource is an interface. It's implementation class is BasicDataSource which is used to set driverClassName, url, username and 	  	  	  password from application.properties with setDriverClassName(), setUrl(), setUsername(), setPassword() methods of BasicDataSource class.
+	- Create method private SessionFactiory sessionFactory() where SessionFactory is an interface. It's implementation class is LocalSessionFactory(extends InitializingBean, DisposibleBean)
+	  which has methods setAfterPropertiesSet(), setDataSourc(), which accepts DataSource, setHibernateProperties() which accepts Properties and setPackagesToScan() where we pass parent 	  package of project.
+	- So All Priperties/Data is stored in SessionFactory. HibernateTemplate uses SessionFactory.
+
+
+Hibernate Criteria Query Language(HCQL) : 
+HCQL is used to fetch records based on the criteria. Criteria interface provides methods to apply criteria. It provides add method to add criteria so it's easy to add criteria.
+
+Methods of Criteria interface :
+public Criteria add(Criteria c) : It used to add Restriction.
+
+public Criteria addOrder(Order o) : To specifies ordering.
+
+public Criteria setFirstResult(int firstResult) : To specifies the first no. of record to be retreived.
+
+public Criteria setMaxResult(int totalResult) : To specifies the total no. of records to be retreived.
+
+public List list() : Returning list containing object
+
+Methods of Restriction Class :
+Criteria criteria = session.createCriteria(Employee.class);
+criteria.add(Restriction.lt("id", 10)) : Sets the less than constraint to the given property.
+List list = criteria.list();	
+
+criteria.add(Restriction.le("id", 10)) : Sets the less than or equal contraint to the given property.
+
+criteria.add(Restriction.gt("id", 10)) : Sets the greater than constraint to the given property.
+
+criteria.add(Restriction.ge("id", 10)) : Sets the greater than or equal contraint to the given property.
+
+criteria.add(Restriction.ne("id", 10)) : Sets the less not equal contraint to the given property.
+
+criteria.add(Restriction.eq("id", 10)) : Sets the equal contraint to the given property.
+
+criteria.add(Restriction.between("id", 10)) : Sets the between contraint to the given property.
+
+Methods of Order Class :
+Criteria criteria = session.createCriteria(Employee.class)
+criteria.addOrder(Order.asc("salary")) : Applies the ascending order on the basis os given property.
+List list = criteria.list();
+
+criteria.addOrder(Order.desc("salary")) : Applies the descending order on the basis of given property.
+
+
+
+@PropertySource :
+@PropertySource annotation is used to provide properties file to Spring Environment. This annotation is used with @Configuration classes. We've to provide the name of the properties file in the classpath attribute. This annotation is repeatable, means wecan have multiple PropertySource on a Configuration class.
+
+
+
+@EnableTransactionManagement
+@EnableTransactionManagement annotation Spring's annotation driven transaction management capability. This annotation is used with @Configuration classes.
+
+
+
+@Embeddable
+JPA provides the @Embeddable annotation to declare that a class will be embedded by other entity.
+
+
+
+@Embeddedid
+@Embeddedid annotation is used to represent the composite keys in entities.
+Composite primary keys are keys that use more than one column to identify a row in the table uniquely.
+
+
+

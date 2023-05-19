@@ -1,0 +1,89 @@
+About You
+
+1.	Could you please give us a brief description of yourself?
+	Hi, I am Aditya Shetkar. I have completed my BSc in Computer Science from university of Mumbai. 
+	Talking about my experience, I have total of 8 months of experience. I have worked on 3 projects so far in my career. These were in Banking, StockMarket and Finance domains.
+	As far as my skillset is concerned, I have hand-on experience of working with Java, SpringBoot, Spring Security, JPA, Kafka, RabbitMQ, Microservices and Docker. That's about me! Thank 			you.
+
+2.	What are your strengths and weaknesses?
+	Strength : 
+	1. Collaborative : In my previous project I used to hepl my teammates to find the solution of their tasks after completing my tasks. 
+	2. Technical know-how : As I am reading articles news blogs related to technologies I have pretty good information of various technologies.
+	
+	Weakness : 
+	1. Self-critical : By acknowledging your success and by taking action towards my goal, I am trying to overcome this weakness.
+	2. Insecure : After completing my task I get little bit insecure about feedback and TL's appreciation, but by staying confident enough about my work I am trying to overcome this weakness.
+	
+
+3.	What drives you in your career?
+	1. The chance to make an impact
+	2. Learning something new
+	3. Finding innovative solutions
+	4. Staying curious
+	5. A great work environment
+
+Past Performance
+
+1.	Could you please describe some of your recent projects?
+	I worked on a banking system. It was a web application in a fintech domain. The main purpose of this project was to provide an online platform to customers so that they avail various 			banking services easily from anywhere. Some key features of this project were email and SMS services, beneficiary services and real time chat support. 
+ 
+	Talking about my role in this project, I worked on security at the time of login and beneficiaries where customers could add, edit and remove beneficiaries. I did backend for these modules. 
+
+	We used technologies such as Spring Boot,
+	Spring Security,
+	Hibernate JPA,
+	SNMP for email sending,
+	Angular 12. for this project. 
+
+	If I have to talk about my learning from the project, I would say I learnt Teamwork
+	Version Control System and Collaboration
+	Understanding the User Requirements
+	Importance of Prospect of Performance.
+
+	That's about this project.
+	
+2.	What has been your most notable achievement so far?
+	My greatest achievement was paying for college myself. My parents can afford my maitainance but i 	want to be kind of  independent. I like to pay for myself.
+
+3.	Could you please let us know about an instance where you demonstrated leadership?
+	Professionally so far I have not got any opportunity to showcase my leadership skills but during my college days while working on the final project my team unfortunately entered into conflict 	and the project got stuck so I took the lead and talked with each of them and made them work together on the project. Finally, we submitted the project on time. This incident shows my 	leadership skills.
+	
+
+How Do You Work?
+
+1.	How do you preserve the information you obtain (E.g. Requirement from client, expectation from your manager)?
+	By making notes and storing information in excel sheet.
+
+2.	How do you report back / update on progress?
+	Whenever I get any task, I look forward to complete my task in a given time. If there any issues related to my task. I ask for help from seniors and teammates, that is how I report accordingly.
+ 
+3.	How do you prioritize your work?
+	I prioritize my task based on importance and urgency of the task I do most important things first and less important things later.
+
+4.	How do you deal with pressure at the work place?
+	First of all, I stay calm and focused. I re-look at the tasks in hand and break them down in smaller pieces for my easy understanding. Then I focus on completing one piece at a time. If it gets 	too much, I take short breaks to unwind. That’s how I deal with pressure.
+
+5.	How do you handle criticism/negative feedback?
+	I believe that negative feedback is an important part of the learning and growth process. Whenever I get the negative feedback, I acknowledge and accept it and try to improve upon these 		areas. That's how I handle negative feedback.
+
+6.	How do you manage a situation where your co-workers are not working and its affecting your task & overall delivery of the project/sprint?
+	I will talk to them about their task and importance of their task. I will talk to them about problems they are facing. 
+
+7.	Do you feel perfection is more important than meeting the deadline? Explain why.
+	Because the task should be done as the requirement if I think about deadline and done my work not properly it will give conflicts and errors after some time.
+
+8.	How do you ensure that the tasks assigned to you are completed successfully within the stipulated time?
+	I will create daily plan. According to that plan I will schedule my working hours and within that time only I will try to complete my respective tasks.
+
+Learning & Development
+
+1.	How do you measure your success (top 3 career metrics)?
+	Appreciation from client, coworkers and seniors/mentors.
+	Increment in my field.
+	Learning something new from my projects.
+
+2.	What are the key skills you need to possess to excel in your current role and how you are currently developing those skills or planning to develop those skills?
+	Currently I am Java backend developer and I am comfortable with different databases, but I am looking forward to learn the frontend part because it is creative and it will hepl me to grow in 		my career as a fullstack developer.
+
+3.	How do you keep yourself updated with the latest technology stack?
+	By reading technology related articles, blogs. If I find something importatnt or interesting, I learn that with the help of YouTube, seniors and my coworkers.

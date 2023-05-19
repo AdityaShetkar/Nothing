@@ -1,0 +1,22 @@
+
+
+Advantages of SpringBoot : 
+
+1) Avoid complex XML Configuration i.e. AutoConfiguration.
+2)To easily develop ready to use Spring Application.
+3) It offers Automated Spring Application.
+4) It eases thr dependency injection and comes with embedded servlet container. eg. TomCat, Jett, Undertow.
+5) Greatest advantage is the reduce time. It minimizes thetime spending Development.
+6) It also provides lot of plugins such as Maven and Gradle which aids in effortless development.
+
+
+IoC Container : 
+
+1) Spring IoC Container is the core of Spring Framework. It creates the objects, configures and assembles their dependencies, manages their entire life cycle. 
+2) The Container uses Dependency Injection    (DI) to manage the components that make up the application.
+3) These objects are called Beans. Since the Controlling of Java objects and their lifecycle is not done by the developers, hence the name Inversion Of Control. 
+4) There are two types of IoC Containers : 
+    -- BeanFactory : 
+        It is an interface which provide basic support to
+    -- ApplicationContext
+

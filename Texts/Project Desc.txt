@@ -1,0 +1,19 @@
+Project description
+I worked on a banking system. It was a web application in a fintech domain. 
+The main purpose of this project was to provide an online platform to customers so that they avail various banking services easily from anywhere.
+Some key features of this project were email and SMS services, beneficiary services and real time chat support. 
+ 
+Talking about my role in this project, I worked on security at the time of login and beneficiaries where customers could add, edit and remove beneficiaries. I did backend for these modules. 
+
+We used technologies such as Spring Boot,
+Spring Security,
+Hibernate JPA,
+SNMP for email sending,
+Angular 12. for this project. 
+
+If I have to talk about my learning from the project, I would say I learnt Teamwork
+Version Control System and Collaboration
+Understanding the User Requirements
+Importance of Prospect of Performance.
+
+That's about this project. 

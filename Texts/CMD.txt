@@ -1,0 +1,5 @@
+On Terminal :
+To check running ports in backgroung : netstat -ano  
+
+To kill port or task : taskkill /F /pid PID of port
+

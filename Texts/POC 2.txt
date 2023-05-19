@@ -1,0 +1,55 @@
+
+DataSource : 
+DataSource is an abstraction, it's implementation classes allow you to use connection pool and loose coupling for connectivity.
+Most of the times we are looking for loose coupling for connectivity so that we can switch databases easily.
+Creating connections can be heavy process and it's not a good idea to let every part of program create its own connections which can lead to resource starvation and slow performance.That's why we use connection pooling.
+Most database drivers provide datasource implementation classes that can be used in connection pool.
+
+
+
+DataSourceBuilder :
+DataSourceBuilder is a java convenience class to create a data source with common implementations and properties.
+
+
+
+Hikari Connection Pool :
+Hikari Connection Pool is a high performance connection pool. A connection pool is a cache of database connections maintained so that the connections can be reused when future requests to the database are required.
+Ideal Connection poolsize is 8 to 16.
+
+minimumIdle/maximumIdle  :
+It controls the minimum/maximum number of connection pool idle connection.
+
+idleTimeout : 
+This property controls the maximum amount of time that a connection is allowed to sit idle in the pool.
+The minimum allowed value is 10000ms(10 seconds). The default value is 600000(10 minutes). The value 0 isInfinity means that idle connections are never removed from the pool.
+ 
+
+
+
+Pageable :
+The pageable implementation represents a set of page to be print.The Pageable object returns the total number of pages in the set as well as the PageFormat andPrintable for a specified page.
+
+
+
+@RequestParam vs @PathVariable :
+@RequestParam and @PathVariable can both be used to extract values from the request URI.
+@RequestParam extract values from the query string.
+@PathVariable extract values from the URI path.
+
+
+
+JpaRepository :
+JpaRepository is a JPA(Java Persistance API) specific extension of Repository. It contains API of CrudRepository and PagingAndSortingRepository.
+It contains API for basic CRUD operations and aslo API for paging and sorting. It is mainly used for managing the data in a Spring Boot Application.
+It has its own methods as well as methods of CrudRepository and PagingAndSortingRepository.
+
+
+
+Pagination :
+Pagination is often used when we have large dataset an we want to present it to the user in smaller chunks.
+
+Pageable : 
+Pageable is an interface, it has method 
+static Pageable ofSize(int pageSize){ return PageRequest.of(0, pageSize)},
+which returns the specific amount of data from dataset on that page.
+

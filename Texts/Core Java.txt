@@ -1,0 +1,273 @@
+Java is a Hybrid Language ===> Both Compiled as well as Interpretd Language.[ Compiled + Interpreted ]
+
+[ Java file (adi.java) ]     =====>    [ Class file (adi.class) ]     =====> Can be used by java interpreter  =====>   Code Runs.
+{ Using javac }             Compiled       Converted to bytecode then                    { Using java }                 	Interpreted
+
+javac adi.java   =====>    Compiled    [ Basically javac- means java uses c compiler to compile ]
+java adi(class)  =====>    Interpreted.
+
+JAVA is Platform Independent [ Write once run Everywhere ]. i.e Once file gets converted into  bytecode, then we can run that bytecode on any 
+operating systems(Windows, MacBook, Linux, Ubuntu).
+
+---------------------------------------------------------------------------------------------------------------------------------------------
+
+1 byte = 8 bits i.e -2^8/2 = -2^7 to 2^7-1 = -128 to 127  i.e at the end -1 because 0(zero) bhi store karta hai.
+1 short = 2 bytes
+1 int = 4 bytes
+1 float = 4 bytes
+1 long = 8 bytes
+1 double = 8 bytes
+1 char = 2 bytes i.e 1 for character and for ascii code of that character.
+boolean =  true or false, but bydefault false rehta hai.
+
+.print ===> same line mai print karaga
+.println ===> next line mai print karega
+.printf("The value of a is %d and value of b is %f ", a, b);    ===> int a = 5; float b = 5.66;
+.format("The value of a is %d and value of b is %.2f ", a, b);i.e point ke baad 2 digit aiyaga.
+
+# to declare datatypes 
+A) Integer Data Types:
+byte age = 34;
+short b = 345;
+int c = 45;
+long d = 34567(l or L) lagana padega for long datatype
+
+B) Float Data Types:
+float age = 34.54(f or F)lagana padega for float datatypeke liyea, nhi to bydefault double datatype declare hoga woh.
+double num = 34.566666;
+
+C) Char Data Types:
+char ch = 'A'; ---> here ('') single colen should be used on characters.
+WhereAs in Strings
+String str = "Harry"; ---> here("")double colen should be used for string declaration.
+
+D) Boolean Data Types:
+boolean = true;
+
+# Operators
+int a = 5;  ---->  This means a is assign to 5 .
+6 == 5;   ----> This means comparison is don whether 6 is equal to 5 or not [ It will always return either true or false.]
+
+#Precedence
+l--->r
+r--->l
+
+#Scanner
+sc.next();  ---> string ka 1st word print karaga baas.
+sc.nextLine();  ---> full string ko print karagaa.
+
+#String Methods.
+Imp===> Strings are Immutable once Created.
+
+How to declare an String?
+1) String str1 = new String("Ganeshaa");
+2) String str2 = "Hanumanji" ; 
+-----------------------------------------------------------------------------------------------------------------
+
+#Arrays.
+Imp===> Arrays are Mutable once Created.
+It is a collections of similar Datatypes.
+
+How to declare an array? ====> datatype [array] arrayname; i.e ====> int [] marks;
+
+1) int [] marks;          ===> Declaration
+   marks =  new int[5];   ===> Memory Allocation ===> Here [5] = [0][1][2][3][4]  i.e starts from 0 to n-1;
+
+2) int [] marks = new int[5];    ===> Declaration + Memory Allocation.
+   marks[0] = 12;
+   marks[1] = 34;
+   marks[2] = 56;
+   marks[3] = 78;
+   marks[4] = 96;            ===> Initialization.
+   
+
+3) int [] marks = {12, 34, 56, 78, 96}  ===> Declare + Initialize.
+
+# String [] students = {"Ganeshaa", "Harry", "Rohan", "Sachin", "Akhilesh", "Yogesh", "Shubham"};
+
+#printing array using for-each loop:
+
+        for(int element : marks){
+            System.out.println(element);
+        }
+-------------------------------------------------------------------------------------------------------------------------
+Functions in Java is known as Methods,  because we create methods(function) inside class in java.
+
+static datatype methodname(){
+
+i.e  static int sum(){
+};
+
+}; ===> Here we write static before datatype because we want to access that method for the variables which is situated inside 
+the [ public static void main()]
+
+Imp ===> If we dont write static then we have to create new object with the help of classname and give reference of that
+object to our method(function)
+
+eg:
+Methods obj = new Methods();
+c = obj.sum(a,b);
+
+-------------------------------------------------------------------------------------------------------------------------
+Method Overloading:
+
+Difference between Parameters and Arguments:
+
+static int sum(int a, int b){             ======> here [int a ,int b] are parameters, i.e we dont know their values. 
+	int c = a + b;
+	return c;
+};
+
+sum(5,8);       ======> here [5, 8] are arguments, i.e we know their values.  ======> [Arugments are Actual].
+----------------------------------------------------------------------------------------------------------------------
+Oops:    Class           ==> Objects         ==> Attributes           ==> Methods
+	 Students        ==> harry, marry    ==> id, name, salary     ==> .getId(), .getSalary()
+
+# Inheritance:
+
+class person{    ===> SUPERCLASS( person )
+int id;
+String name;
+int salary;
+}
+
+class student extends person{    ====> SUBCLASS( student ) inheriting SUPERCLASS properties.
+String address;
+}
+
+Imp ===> If we want to select any particular overloaded method of SUPERCLASS from SUBCLASS then use [ super(pass the parameters) ]
+i.e super(5);
+
+# Method Overloading VS Method Overriding:
+Overloading ===> Means ekk class ke andar 2 ya 2 se jyada methods honge with [same name, but different parameters].
+Overriding ===>  Means SUBCLASS jab SUPERCLASS ke methods ko access karta hai, to oosko [kuch methods] ya properties SUPERCLASS ki same nhi 
+		  chaiyea hota hai, taab SUBCLASS apne SUPERCLASS ke wo [particular] method ko override ka deta hai.
+
+# Dynamic Method Dispatch :
+SUPERCLASS s = new SUBCLASS();
+
+here from [s.] we can access all methods of SUPERCLASS only not SUBCLASS.
+But in case of [overriding methods] from [s.] SUBCLASS method will be accessed only.
+
+# Abstract class:
+You cannot declare objects of Abstract class.
+If you declare one Abstract Method in a Class then you have to declare that whole class as Abstract Class.
+
+If a SUBCLASS Inherit Abstract SUPERCLASS with Abstract Methods in it then:
+1) That SUBCLASS has to [override] all the Abstract Method of that SUPERCLASS.
+2) Else that SUBCLASS has to declare [Abstract SUBCLASS itself], if it does not override all the Abstract Method of that SUPERCLASS.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+# Interfaces:
+How to inherit class:          class SUBCLASS_name [extends] SUPERCLASS_name{};
+
+How to inherit interfaces :    class Class_name [implements] Interface_name{};  Note===> interface Methods should be [public] in class where we are using.
+
+Note: We cannot derive a class using a multiple class but, We can derive a class using multiple interfaces.
+Eg for class:       class Child extends Parent{};   ===> Here only one Parent class can be extended at a time.
+eg for interface :  class AvonCycle implements Bycycle, Horn{}; ===> Here both interface [bycycle, horn] can be implement at a same time in a single class.
+
+# Difference between Abstract class and Interface:
+Abstract class : It can have Abstract Methods[without body part of method i.e {} ], and Non-Abstract Methods also [with body i.e {} ].
+Interface :      It can [only] have Abstract Methods[without body i.e {} ]
+
+# Multiple Inheritance is not supported in java, i.e we cannot inherit more than one class at a time.
+eg: class child extends Parent1, Parent2, Parent3{}; =====>  ye [Wrong] hai.
+It can be resolved using Multiple Interface.
+eg: class child extends Parent1 implements Bycycle, Horn, Brakes{};===> where [Bycycle,Horn,Brakes] are Interface not Class.
+
+----------------------------------------------------------------------------------------------------------------------------------------------
+#Packages : Two Types:
+1) Built in packages: They are the packages which java jdk or java compiler gives us inbuilt.eg[ import java.util.Scanner, import java.util.Random]etc
+2) User defined packages: They are the packages which are build by us. eg[ package package_name; ( package ganeshaa; )]
+
+How to create User defined packages:( package ganeshaa; )
+javac -d . adi.java ===> here ganeshaa folder ke ander single harry.class create hoga.
+javac -d . *.java   ===> here saab naam ka package folder apneaap create hokar saab file class ooske ander arrange ho jaiyaga.
+javac -d abc *.java  ===> here [folder abc] ===> [folder ganeshaa] ===> then [file class] save hoga.
+----------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Multithreading and Multiprocessing:
+
+Concurrency : Doing one thing at a time. [ Chatting and playing cricket] like u will be chatting and while your batting yu will stop chatting and go for 
+		batting , and when you wil be out then again doing chatting.
+Parallel : Doing two things at a time. [Chatting and playing cricket] like you are chatting with your girlfriend and your friend is doing batting simutanously.
+
+{ 
+Multiprocessing means running multiple process [p1, p2, p3, p4, p5] simultanuously, while 
+Multithreading means running multile threads in single process [p1 or p2 or p3 or p4 or p5] simultaneously.
+
+Thread is a part of Process. i.e Many Threads can be there in a single process.[Threads ===> Faster Content Sharing ].
+}
+Two Method to use Thread:
+
+1) By extending Thread class :-
+To use thread : class classname extends Thread{};
+To run thread : objectname.start(); i.e [ t1.start() ] Concurrently both program will run simultanously.
+
+2) By Implementing Runnable interface :-
+To use thread : class classname implements Runnable{
+	public void run(){} }; ===> Here there should be a Method with specific name run.
+To run thread :
+		Parent bullet1 = new Parent();
+        	Thread gun1 = new Thread(bullet1);
+
+        	Child bullet2 = new Child();
+        	Thread gun2 = new Thread(bullet2);
+
+        	gun1.start(); ===> Here we cannot directly run start(). First we have to create Thread object and then load that parent object
+        	gun2.start(); ===> in that Thread object.
+
+#Priorities in Threads:
+Types:-
+1) MIN_PRIORITY = 1
+2) NORM_PRIORITY = 5
+3) MAX_PRIORITY = 10
+
+If there are multiple threads [t1,t2,t3,t4,t5] then we can set the priorities for the threads which we want to run more or give priority more.
+eg:	t5.setPriority(Thread.MAX_PRIORITY);
+	t3.setPriority(Thread.MIN_PRIORITY);
+	t1.setPriority(Thread.NORM_PRIORITY); ===> Bydefault normal priority rehta hai.
+
+--------------------------------------------------------------------------------------------------------------------------------------------
+#Errors in Java: Note:-[Syntax and Logical errors are handled or mantained by Programmers] & [Runtime errors are handled or mantained by Users].
+1) Syntax Error:
+		It is like errors in syntax while writing code.
+		eg: int a = 5[; missing] ,  b = 10 [datatype of b is missing] etc.
+2) Logical Error:
+		It is Like Aapka program run kar raha hai, aapka compiler koi error produce nhi kar raha hai, to bhi aapka kaam nhi ho raha hai
+		i.e Desired or epected output nhi mil raha hai.
+3) Runtime Error(Exception error): It is like program input lete waqt crash ho jaiye, or program or site data internet se fetch karte waqt crash ho jaiye.
+
+#In Python:
+	try:
+		Code that might cause Exception.
+	except:
+		Code to handle if there is exception.
+	else:
+		Code if there is no exception.
+	finally:
+		Code will run Confirm.
+#In Java:
+	try:
+		Code that might cause Exception.
+	catch(Exception e):
+		Code to handle if there is exception.	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

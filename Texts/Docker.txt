@@ -1,0 +1,47 @@
+=================================================================================================================================================
+									Docker
+=================================================================================================================================================
+
+What is Docker?
+Docker is tool designed to make it easier to build, deploy and run applications by using containers.
+
+
+Problems before Docker?
+Dependencies version mismatch from one environment to another.
+Library(jar) corrupted.
+Software upgrade.
+
+
+How Docker resolve this issue?
+Containers allo a developer to package up an application with all of the parts it needs such as libraries and other dependencies and ship it akk out as one package.
+
+
+What is Image?
+Image consist of :
+A cut down OS.
+A runtime environment.
+Application files.
+Third party libraries.
+Environment variables., etc.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

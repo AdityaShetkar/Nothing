@@ -1,0 +1,62 @@
+ @PostMapping("/add")
+    public ResponseEntity<UserDTO> addUser(@RequestBody UserDTO userDTO){
+        UserDTO addUserDTO = this.userService.addUser(userDTO);
+        return new ResponseEntity<>(addUserDTO, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<UserDTO> updateUser(@RequestBody UserDTO userDTO, @PathVariable("id") int id){
+        UserDTO updatedUser = this.userService.updateUser(userDTO, id);
+        return ResponseEntity.ok(updatedUser);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<UserDTO> deleteUser(@PathVariable("id") int id){
+        this.userService.deleteUser(id);
+        return new ResponseEntity(new ApiResponse("User Deleted Successfully", true), HttpStatus.OK);
+    }
+
+    @GetMapping("/get")
+    public ResponseEntity<List<UserDTO>> getAllUser(){
+        return ResponseEntity.ok(this.userService.getAllUsers());
+    }
+
+    @GetMapping("/getById/{id}")
+    public ResponseEntity<UserDTO> getUserById(@PathVariable("id") int id){
+        return ResponseEntity.ok(this.userService.getUserById(id));
+    }
+
+    @GetMapping("/getByEmail/{email}")
+    public ResponseEntity<List<UserDTO>> getUserByEmail(@PathVariable("email") String email){
+        return ResponseEntity.ok(this.userService.getUserByEmail(email));
+    }
+
+    @GetMapping("/getByName/{name}")
+    public ResponseEntity<List<UserDTO>> getUserByName(@PathVariable("name") String full_name){
+        return ResponseEntity.ok(this.userService.getUserByUserName(full_name));
+    }
+
+    @GetMapping("/getByCountry/{country}")
+    public ResponseEntity<List<UserDTO>> getUserByCountry(@PathVariable("country") String country){
+        return ResponseEntity.ok(this.userService.getUserByCountry(country));
+    }
+
+    @GetMapping("/getByState/{state}")
+    public ResponseEntity<List<UserDTO>> getUserByState(@PathVariable("state") String state){
+        return  ResponseEntity.ok(this.userService.getUserByState(state));
+    }
+
+    @GetMapping("/getByAadhaar/{aadhaar}")
+    public ResponseEntity<List<UserDTO>> getUserByAadhaar(@PathVariable("aadhaar") String aadhaar_card){
+        return ResponseEntity.ok(this.userService.getUserByAadhaar(aadhaar_card));
+    }
+
+    @GetMapping("/getByPan/{pan}")
+    public ResponseEntity<List<UserDTO>> getUserByPan(@PathVariable("pan") String pan_card){
+        return ResponseEntity.ok(this.userService.getUserByPAN(pan_card));
+    }
+
+    @GetMapping("/getByMobile/{mobile}")
+    public ResponseEntity<List<UserDTO>> getUserByMobileNumber(@PathVariable("mobile") String mobile_no){
+        return ResponseEntity.ok(this.userService.getUserByMobileNumber(mobile_no));
+    }

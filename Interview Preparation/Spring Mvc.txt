@@ -1,0 +1,5 @@
+Configure the dispatcher servlet in web.xml
+2) create spring Confiuration file
+3) confiure view reslover
+4) create controler
+5) create view to show pages

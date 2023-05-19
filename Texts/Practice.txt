@@ -1,0 +1,291 @@
+=================================================================================================================================================
+								          Overloading
+=================================================================================================================================================
+
+What is Overloading?
+When a class has more than one method with same name but different paramenters, then we call those methods are overloaded. Overloading happens within a class. Overloading is the best example static binding.
+Overloading can be done by changing:
+The no. of parameters
+The datatypes of the parameters
+The order of the parameters
+
+What is method signature ?
+Method signature is used by the compiler to differentiate the overloaded and duplicated methods.
+It consist of three things:
+Method name
+Number of args
+Type of args
+
+Can we declare one overloaded method as static and another one as non-static?
+Yes. Overloaded methods can be either static or non static.
+
+How do compiler differentiate overloaded methods from duplicate methods?
+Compiler uses method signature to check whether the method is overloaded or duplicated.
+
+In “MyClass” , there is a method called “myMethod” with four different overloaded forms. All four different forms have different visibility ( private, protected, public and default). Is “myMethod” properly overloaded?
+Yes. Compiler checks only method signature for overloading of method not the visibility of the methods.
+
+Can overloaded methods be synchronized?
+Yes. Overloaded method can be synchronized.
+
+Can we overload main() method?
+Yes, we can overload main() method. A class can have any number of main methods but the execution starts from public static void main(String []  args) only.
+
+Can we declare overloaded methods as final?
+Yes, we can declare overloaded method as final.
+
+Why to declare any method as final?
+If we declare method as it can't be overriden by their subclasses.
+
+Can overloaded method be overridden?
+Yes, we can override a method which is overloaded in the super class.
+
+=================================================================================================================================================
+								    Overriding
+=================================================================================================================================================
+
+What is Overriding?
+Modifying a super class's method in the sub class is called as method Overriding. Using method overriding, we can change super class's method according to the requirement of sub class.
+Name of the method should be same as that of super class method.
+Return type of overriden method must be compatible with the method being overridden. If method has primitive datatype as its returntype then it must be overridden with the primitive type only. If a method has derived type as return type then it must be overridden with same type or it's sub class type(Covarient Returntype).
+We can increase the visibility but you must not reduce the visibility while overriding.
+You must not change parameter list of method while overriding.
+You can't increase the scope of exceptions while overriding a method with throws clause.
+
+Can we override static methods?
+No, static methods cannot be overridden. If we try to override static method then it is called as METHOD HIDING.
+
+What happens if we change the arguments of overriding method?
+If we change the args of overriding method, then that method will be treated as normal not overridden.
+
+Can we override protected method of super class as public method in the sub class?
+Yes, you can increase the visibility of overriding method but you cannot reduce it.
+
+Can we change the return type of overriding method from Number type to Integer type?
+Yes, we can change as Integer is a subclass of Number type.
+
+Can we override a super class method without throws clause as a method with throws clause in the sub class?
+Yes, but only with unchecked type of exceptions.
+
+Can we change an exception of a method with throws clause from SQLException to NumberFormatException while overriding it?
+Yes. Overridden method may throw SQLException or it's sub class exception or any unchecked type of exception.
+
+Can we change an exception of a method with throws clause from unchecked to checked while overriding it?
+No. We can't change an exception of a method with throws clause from unchecked to checked.
+
+How do you refer super class version of overridden method in the sub class?
+Using super keyword we can refer class version of overridden method in the subclass.
+
+Can we override private methods?
+No, private methods only accessible within a class.
+
+Can we remove throws clause of a method while overriding it?
+Yes. You can remove throws clause of a method while overriding it.
+
+Is it possible to override non-static methods as static?
+No. You can’t override non-static methods as static.
+
+Can we change an exception of a method with throws clause from checked to unchecked while overriding it?
+Yes. We can change an exception from checked to unchecked but reverse is not possible.
+
+Can we change the number of exceptions thrown by a method with throws clause while overriding it?
+Yes, we can change. But, exceptions must be compatible with throws clause in the super class method.
+
+=================================================================================================================================================
+								         Interface
+=================================================================================================================================================
+
+What is an interface?
+An interface is a mechanism that is used to achieve complete abstraction. It is basically a kind of a class that contains only constants and abstract methods.
+
+Can we define private and protected modifiers for data members (fields) in interfaces?
+No, we cannot define private and protected modifiers for variables in interface because the fields (data members) declared in an interface are by default public, static, and final.
+
+Which modifiers are allowed for methods in an Interface?
+Only abstract and public modifiers are allowed for methods in interface.
+
+Suppose A is an interface. Can we create an object using new A()?
+No, we cannot create an object of interface using new opertator. But we can create a reference of interface type and interface reference refers to objects of its implementation classes.
+
+Can we define an interface with a static modifier?
+Yes, from Java 8 onwards, we can define static and default methods in an interface. Prior to Java 8, it wasn't allowed.
+
+Suppose A is an interface. Can we declare a reference variable a with type A like this: A a; ?
+Yes.
+
+Can an interface extends another interface in Java?
+Yes.
+
+Can an interface implement another interface?
+No.
+
+Is it possible to define a class inside an interface?
+Yes, we can define a class inside an interface.
+
+Can an interface extend multiple interfaces?
+Yes.
+
+Can an interface has instance and static blocks?
+No.
+
+What happens if a class has implemented an interface but has not provided implementation for that method defined in Interface?
+The class has to be declared with an abstract modifier. This will be enforced by the Java compiler.
+
+Why an Interface method cannot be declared as final in Java?
+The class has to be declared with an abstract modifier. This will be enforced by the Java compiler.
+
+Can an interface be final?
+No. Doing so will result compilation error problem.
+
+Why an interface cannot have a constructor?
+Inside an interface, we cannot declare/define a constructor because the purpose of constructor is to perform initialization of instance variable but inside interface every variable is always static.
+
+Why an Interface can extend more than one Interface but a Class can’t extend more than one Class?
+We know that Java doesn’t allow multiple inheritance because a class extends only one class. But an Interface is a pure abstraction model. It does not have inheritance hierarchy like classes.
+
+What is the use of interface in Java?
+a. An interface is used to achieve fully abstraction.
+b. Using interfaces is the best way to expose our project’s API to some other project.
+c. Programmers use interface to customize features of software differently for different objects.
+d. By using interface, we can achieve the functionality of multiple inheritance.
+
+Is it necessary to implement all abstract methods of an interface?
+Yes, all the abstract methods defined in an interface must be implemented.
+
+Can we define a variable in an interface? What type it should be?
+Yes, we can define variable in an interface that must be implicitly static or final.
+
+Can we re-assign a value to a variable of interface?
+No, variables defined inside the interface are static and final bydefault. They are just like constants. We can't change their value once they got.
+
+What is a Marker Interface in Java?
+An interface that doesn't have any data members or methods is called as Marker Interface.
+i.e. Serializable, Clonable, Remote, etc.
+
+What is a Nested interface?
+An interface declare inside another interface is called nested interface. By default, it is static in nature. It is known as static interface.
+
+Can we reduce the visibility of interface method while overriding?
+No, while overriding interface methods, we must use public only. This is because all interface methods are public by default. We cannot reduce visibility while overriding.
+
+Can we define an interface inside a method as local member?
+No, we cannot define interface as local member of a method like local inner class.
+
+What is a Functional interface in Java 8?
+An interface that has exacly one abstract method is called functional interface. It is also known as single abstarct method interface. Functinal interface can have three types of methos : abstract, default, static.
+Functional interface can have default methods with implementation. Default method cannot be abstract.
+i.e. Runnable, Callable
+
+Why do we need Functional interface in Java 8?
+A Functional Interface is mainly used in Lambda expression, Method reference, Constructor.
+
+Can we declare private method inside an interface in JDK 9?
+Before JDK 9, all methods defined in an interface were implicitly public. But JDK 9 allow to declare private method inside an interface. The private method defined in an interface cannot be called or overridden by implementing classes.
+
+=================================================================================================================================================
+								       Abstract Class
+=================================================================================================================================================
+
+What is Abstract class?
+Abstraction is a technique by which we can hide the data that is not required to users. It hides all unwanted data so that users can work only with the required data.
+
+What is Abstract in java?
+Abstract is a non access modifier that is applicable for classes, interfaces, methods and inner classes.
+
+Can abstract modifier applicable for variables?
+No.
+
+What is Abstract method in Java?
+A method which is declared with abstract modifier and has no implementation (means no body) is called abstract method in java.
+
+Can an abstract method be declared as static?
+No.
+
+Can an abstract method be declared with private modifier?
+No, it cannot be private because the abstract methods must be implemented in the child class. If we declare it as private, we cannot implement it from outside the class.
+
+What is Concrete method in Java?
+A concrete method is a method which has always the body. It is aslo called a complete method in java.
+
+When to use Abstract class in Java?
+An Abstract class can be used when we need to share the same method to all non abstract sub classes with their own specific implementation.
+
+When to use Abstract method in Java?
+An abstract method can be used :
+a) When the same method has to perform different tasks depending on the object calling it.
+b) When you need to be overridden in its non abstract subclass.
+
+Is abstract class a pure abstraction in Java?
+No, it provides 0 to 100% abstraction.
+
+Is it possible to create an object of abstract class in Java?
+No. It is not possible but we can create an object of its subclass.
+
+ Is it possible that an abstract class can have without any abstract method?
+Yes.
+
+Can an abstract class have constructor?
+Yes.
+
+Is abstract class allow to define private, final, static, and concrete methods?
+Yes.
+
+Is it possible to achieve multiple inheritance through abstract class?
+No.
+
+Can we make an abstract class without abstract keyword?
+No, class must be declare with abstract keyword to make an abstract class.
+
+Can we define an abstract method inside non-abstract class (concrete class)?
+No.
+
+What will happen if we do not override all abstract methods in subclass?
+Java compiler will generate compile time error. We will have to override all abstract methods in subclass.
+
+Why abstract class has constructor even though you cannot create object?
+We cannot create an object of abstract class but we can create an object of subclass of abstract class. When we create an object of subclass of an abstract class, it calls the constructor of subclass.This subclass constructor has a super keyword in the first line that calls constructor of an abstract class. Thus, the constructors of an abstract class are used from constructor of its subclass. If the abstract class doesn’t have constructor, a class that extends that abstract class will not get compiled.
+
+Why should we create reference to superclass (abstract class reference)?
+We should create a reference of the superclass to access subclass features because suerclass reference allows only to access features of subclass which have already declare in superclass.
+
+What is the advantage of Abstract class in Java?
+Abstract class makes programming better and more flexible by giving the scope of implementing abstract methods.
+Programmers can implement abstract method to perform different tasks depending on the need.
+We can easily manage code.
+
+=================================================================================================================================================
+								         Object Lock
+=================================================================================================================================================
+
+What is Object Lock?
+An object lock is a machanism when we want to synchronize a non satic method or non static code block such that only one thread will be able to execute the code block on a given instance of the class.
+If a thread wants to execute a synchronized method on the given object. First, it has to get a lock of that object. Once the thread got the lock then it is allowed to execute any synchronized method on that object. Once method execution completes automatically thread releases the lock. Acquiring and release lock internally is taken care of by JVM and the programmer is not responsible for these activities.
+
+=================================================================================================================================================
+								         Class Lock
+=================================================================================================================================================
+
+What is Class Lock?
+If a thread wants to execute a static synchronized method, then the thread requires a class level lock. Class level lock prevents multiple threads to enter a synchronized block in any of all available instances of the class on runtime. This means if in runtime there are 10 instances of a class, only one thread will be able to access only one method or block of any one instance at a time. It is used if you want to protect static data. Once method execution completes automatically thread releases the lock.
+
+=================================================================================================================================================
+								    Exception Handling
+=================================================================================================================================================
+
+What ia Exception?
+Exception is an event that occurs during the execution of a program and disrupts the normal flow of the program's instruction.
+
+Exceptions can be categorized into two ways :
+1) Built in Exceptions
+	Checked Exception
+	Unchecked Exception
+2)User Defined Exceptions
+
+
+
+
+
+
+
+
+

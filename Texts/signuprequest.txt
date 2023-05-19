@@ -1,0 +1,16 @@
+{
+    "email": "aditya@gmail.com",
+    "password": "1234Aditya",
+    "username": "Aditya Shetkar",
+    "country": "India",
+    "state": "Maharashtra",
+    "district": "Thane",
+    "pinCode": 400605,
+    "aadhaarCard": "111222333444",
+    "panCard": "NLXBC1905E",
+    "city": "Thane",
+    "mobileNo": "1234567890",
+    "role": [
+        "ROLE_USER"
+    ]
+}

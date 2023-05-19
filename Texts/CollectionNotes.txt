@@ -1,0 +1,129 @@
+Collection interface  is the root interface in the collection hierarchy.
+It has some important methods like add,addAll,remove,removeAll,size,isEmpty,clear,contains,
+hashCode,removeIf
+-------------------------------------------------------------------------------------------------------------------------------------
+ArrayList vs LinkedList
+ArrayList and LinkedList both extends List interface and follows insertion order and they are non synchronized.They can contain duplicte values.
+ArrayList uses dynamic array while LinkedList uses doubly linked list.
+ArrayList is slow beacuse of shifting .LinkedList can be used both as list and queue.
+ArrayList is better for storing and accessing data while LinkedList is good for manipulating data.
+The memory location of arraylist is contiguos while linkedlist is not contigious.
+--------------------------------------------------------------------------------------------
+Arrays vs ArrayList
+we can store only one type of data in array at a time while in arraylist we can store any types of data.
+Array is fixed length data structure while arraylist is of variable length.
+we cannot store primitive in arraylist but in array we can store both primitive as well as object
+--------------------------------------------------------------------------------------------
+HashSet extends AbstractSet and implements Sets
+Hashset uses hashing concept to store data.
+HashSet contains unique value only.
+HashSet allows null value
+HashSet class is non synchronized.
+HashSet doesn't maintain the insertion order. 
+hashSet is best for search operation
+Initial capacity of hashset is 16
+--------------------------------------------------------------------------------------------
+LinkedHashSet extends HashSet and implements Set interface
+LinkedHashSet class contains unique elements only 
+LinkedHashSet class is non-synchronized.
+LinkedHashSet class maintains insertion order.
+------------------------------------------------------------------------------------------------
+public class TreeSet<E> extends AbstractSet<E> implements NavigableSet<E>, Cloneable, Serializable    
+TreeSet class contains unique elements only
+TreeSet class access and retrieval times are quiet fast.
+TreeSet class doesn't allow null element
+TreeSet class is non synchronized.
+TreeSet class maintains ascending order.
+------------------------------------------------------------------------------------------
+Queue inteface implements Collection
+It does not accept null values 
+we can store data from one end only
+PriorityQueue implements Queue and it follows FIFO
+--------------------------------------------------------------------------------------------
+Deque interface extends Queue interface.
+In deque we can add and remove element from both ends.
+deque can be used as stack as well as queue.
+-----------------------------------------------------------------------------------
+ArrayDeque class extends AbstractCollection implements Deque interface
+ArrayDeque can add and remove element from both ends but it is not possible in Queue
+It does not accept null values
+ArrayDeque is faster than LinkedList and Stack.
+ArrayDeque is not thread safe, in the absence of external synchronization.
+ArrayDeque has no capacity restrictions.
+----------------------------------------------------------------------------------------
+A map contains key and value pair.Each key and value pair is known as an entry
+A Map doesn't allow duplicate keys, but you can have duplicate values
+HashMap and LinkedHashMap allow null keys and values
+--------------------------------------------------------------------------------------
+It inherits the AbstractMap class and implements the Map interface. but it doesn't maintain any order
+HashMap is non synchronized.
+Java HashMap contains only unique keys.
+HashMap can contain one null key.
+The initial default capacity of Java HashMap class is 16 with a load factor of 0.75.
+----------------------------------------------------------------------------------------
+LinkedHashMap inherits HashMap class and it is the implementation of Map. It inherits HashMap class. It maintains insertion order.
+LinkedHashMap may have one null key and multiple null values.
+Java HashMap contains only unique keys.
+ LinkedHashMap is non synchronized.
+Java LinkedHashMap maintains insertion order.
+-------------------------------------------------------------------------------------------
+It implements the NavigableMap interface and extends AbstractMap class.
+It maintains ascending order.
+ TreeMap cannot have a null key but can have multiple null values.
+Java TreeMap is non synchronized.
+Java HashMap contains only unique keys.
+------------------------------------------------------------------------------------------
+Hashtable class inherits Dictionary class and implements the Map interface.
+Hashtable class contains unique elements.
+Hashtable class doesn't allow null key or value.
+Hashtable class is synchronized.
+The initial default capacity of Hashtable class is 11 whereas loadFactor is 0.75.
+---------------------------------------------------------------------------------------------
+Difference between HashMap and HashTable
+HashMap is non synchronized while HashTable is synchronized
+HashMap is fast while HashTable is slow
+HashMap  allows one null key and multiple null values while Hashtable doesn't allow any null key or value.
+ HashMap is traversed by Iterator while Hashtable is traversed by Enumerator and Iterator.
+ HashMap inherits AbstractMap class. while Hashtable inherits Dictionary class.
+
+----------------------------------------------------------------------------------------------
+Collections class inherits Object class
+Collection class throws a NullPointerException if the collections or class objects provided to them are null.
+
+-------------------------------------------------------------------------------------------------
+Iterator is used to iterater over collection
+It can iterate only in forward direction 
+It has methods like hasNext(),next(),remove().
+----------------------------------------------------------------------------------------------
+ListIterator is used to iterate over collections in both forward and backward direction 
+It can be used to iterate over list only.
+------------------------------------------------------------------------------
+Comparable interface is used to sort the the objects of the user-defined class.
+It contains only one method named compareTo(Object)
+It provides a single sorting sequence only, i.e., you can sort the elements on the basis of single data member only.
+For example, it may be rollno, name, age or anything else.
+--------------------------------------------------------------------------------------
+Comparator interface is used to order the objects of a user-defined class.
+It provides multiple sorting sequences, i.e., you can sort the elements on the basis of any data member, 
+for example, rollno, name, age or anything else.
+---------------------------------------------------------------------------------------------
+The Properties object contains key and value pair both as a string.
+ The java.util.Properties class is the subclass of Hashtable.
+---------------------------------------------------------------------------------------------
+ArrayList vs Vector
+ArrayList is not synchronized while Vector is synchronized.
+ArrayList is fast because it is non-synchronized while Vector is slow because it is synchronized.
+ArrayList uses the Iterator interface to traverse the elements while A Vector can use the Iterator interface or Enumeration interface to traverse the elements.
+ArrayList is not ?thread-safe while Vector is thread-safe
+
+------------------------------------------------------------------------------------------------------------------------------------
+Vector is like the dynamic array which can grow or shrink its size.
+Vector is synchronized.
+Vector contains many legacy methods that are not the part of a collections framework.
+It is recommended to use the Vector class in the thread-safe implementation only.
+If you don't need to use the thread-safe implementation, you should use the ArrayList, the ArrayList will perform better in such case.
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Stack class extends Vector class.It follows Lifo order.It provides different operations such as push, pop, search, etc.
+
+
+

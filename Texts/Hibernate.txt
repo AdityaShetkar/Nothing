@@ -1,0 +1,210 @@
+Ganeshaa { Ctrl + Shift + F}: ORM{ Object Relational Mapping(2 ways : xml_file & Java_Annotations) } : Best tools for this is Hibernate Java Framework [ORM Tool for persisting Data] : 
+Java Application & Database ko map karna:  [ Java Application mai hum data store karte hai { Object mai i.e User user = new User()} and Relational Database mai hum store karte hai { Tables mai i.e Id, Name, Salary}]
+
+		<property name="format_sql">true</property>
+
+
+Prerequisites :[ CoreJava( OOPS ) + Sql( Database ) + Jdbc( Connectivity ) ].
+#Imp Points: 
+===> Class is also known as Entity : i.e Each class ka ekk table create hoga database mai.
+
+Connection Between ===> OOP & Relational Database System ===> is called as O[Java Concepts ] R[Database Concepts ] M[And we have to mapp them without (SQL Knowledge)].
+
+Basically in Hibernate we do 2 things : 
+1) class abc() in java application ====> ko mapped kar denge database mai abc table se.
+2) class abc() ka jo fields hai(variables) ===> oosko table abc ke row, columns se mapped kar denge.
+
+#How to get or fetch data from database using Hibernate : 2 Methods : 
+1)get(returns null if object not found in database or cache ) : Also use if you are not sure that object exists in db or not.  
+2)load(throws ObjectNotFoundException if object not found in database or cache ) ]: Also use if you are 
+Totally sure that object exists in db or not.
+Student stu1 = session.get(Student.class, 101);
+        System.out.println(stu1);
+
+Student stu3 = session.load(Student.class, 103);
+        System.out.println(stu3);
+
+Address ad3 = session.load(Address.class, 3);
+        System.out.println("City : " + ad3.getCity() + " : " + "Street : " + ad3.getStreet() + " : "+" Date : " + ad3.getAddedDate());
+------------------------------------------------------------------------------------------------------------------------------------------
+
+@Embeddable: Annotation : Usage : If we want to add variable of one class to another class without creating entity of 2nd class then we can use @Embeddable:
+	    OR: ===>	Ekk class ke Fields ko doosre class mai embed or use kar paiyae. [Student.java, Certificate.java, EmDemo.java ]
+
+# Fetching Technique : [@oneTomany eg : ]
+Lazy Loading: In Lazy loading, associated data loads only when we explicitly calls getter or size method.[Question call kiya to answer load nhi honge, answer load honge jaab getter ya size method call hoga.]
+===>		@OneToMany(mappedBy = "question", fetch = FetchType.LAZY)
+===>	
+{ 
+	Session session = factory.openSession();
+        Question q = session.get(Question.class, 1);
+        
+        System.out.println(q.getQuestionId());
+        System.out.println(q.getQuestion());
+        System.out.println(q.getAnswers().size());
+
+        session.close();
+}
+
+Eager Loading: It is a design pattern in which data loading occurs on the spots.[Question call kiya to answer bhi load ho jaiyange.]
+===>		@OneToMany(mappedBy = "question", fetch = FetchType.EAGER)
+
+#Hybernate Object States : [ 1) Values present in database;  2) Objects present in Session Object]
+1) Transient State: [ NO, NO]
+2) Persistent State : [ YES, YES ]   i.e session.save(object); step.
+3) Detached State : [ YES, NO ]
+4) Removed State : [ NO, YES ]
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Hibernate Query Language[ HQL ]:
+sql : - It is used to fetch simple data from Database.{Database Dependent, easy to learn for database programmer}.
+hql : - It is similar to sql but, used to fetch complex data[data from more than one table] from Database.{Database InDependent, easy to learn for java programmer}.
+
+1) For fetching data from database Using Hibernate : 
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	SessionFactory factory = new Configuration().configure("Hibernate.cfg.xml").buildSessionFactory();
+    	Session session = factory.openSession();
+    	Transaction tx = session.beginTransaction(); // Very Much Imp Point : 
+
+    	
+    	String query = "from StudentNeo where city='Mumbai'"; // Here StudentNeo is class, not table & Mumbai is variable, not column of table.
+    	Query q = session.createQuery(query);
+    	List<StudentNeo> list = q.getResultList();
+    	for(StudentNeo student : list) {
+    		System.out.println(student.getName());
+    	}
+    	session.close();
+    	factory.close();	
+    }
+}
+
+2) For [delete, update] query from database Using Hibernate :
+
+	Query q2 = session.createQuery("delete from StudentNeo where city='Delhi' ");
+	int no = q2.executeUpdate();
+    	System.out.println("No of rows Affected : " + no);
+
+
+    	String sql = "update StudentNeo set city='Navi Mumbai' where id=101 ";
+    	Query q2 = session.createQuery(sql);
+    	int no = q2.executeUpdate();
+    	System.out.println("No of rows Affected : " + no);
+-------------------------------------------------------------------------------------
+
+#Pagination :
+
+	public static void main(String[] args) {
+		
+		SessionFactory factory = new Configuration().configure("Hibernate.cfg.xml").buildSessionFactory();
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		Query query = session.createQuery("from StudentNeo");
+		
+		query.setFirstResult(0);
+		query.setMaxResults(6);
+		
+		List<StudentNeo> list =  query.getResultList();
+		
+		for(StudentNeo st : list) {
+			System.out.println(st.getName() + " : " + st.getId());
+		}
+		
+		session.close();
+		factory.close();
+	}
+
+----------------------------------------------------------------------------------------------------------
+
+#Native Queries : It means SQL queries which depends on database[eg MySql ka alag query hoga aur oracle ka alag query hoga] 
+			so {we use hql queries because it is database independent i.e same hql query hoga oracle aur mysql ke liyea} : 
+
+	public static void main(String[] args) {
+		
+		SessionFactory factory = new Configuration().configure("Hibernate.cfg.xml").buildSessionFactory();
+		Session session = factory.openSession();
+		Transaction tx = session.beginTransaction();
+		
+		String sql = "select * from StudentNeo";
+		NativeQuery query = session.createSQLQuery(sql);
+		
+//		List<StudentNeo> list = query.getResultList(); // we are using sql queries and StudentNeo is class which will return Objects of Data.
+//		for(StudentNeo st : list) {
+//			System.out.println(st.getName() + " : " + st.getId());
+//		}
+
+		List<Object[]> list = query.getResultList(); 
+		for(Object[] st : list) {
+			System.out.println(st[2] + " : " + st[1] + " : " + st[0]);
+		}
+		
+		session.close();
+		factory.close();
+	}
+---------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Cascading in Hibernate : To understand this, take eg of "onetomany" of one question with multiple answers wala eg:- To run the code u have to save questions and all answers related to that questions.
+				Suppose for 1 question we have multiple answers, so it is not possible to save all the answers so we use Cascading in Hibernate : 
+			
+			:	@OneToMany(mappedBy = "quest" , fetch = FetchType.EAGER, cascade = CascadeType.ALL)	:
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------
+# Caching Techniques : It is a Mechanism to enhance the performance of the Application : It is used to reduce the number of database queries. {FetchType maven project mai perform kiya hai.}
+
+1) First Level : Available in [Session Object] : By default provided : 
+
+2) Second Level : Available in [SessionFactory Object] : Manually Enabled : We have to add Jar file[ehcache maven] & [hibernate cache maven]:
+
+	<!-- https://mvnrepository.com/artifact/net.sf.ehcache/ehcache -->
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+			<version>2.10.6</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-ehcache -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-ehcache</artifactId>
+			<version>5.4.32.Final</version>
+		</dependency> 
+
+EhCacheRegionFactory (choose org.hibernate.cache.encache.internal) ===> type this in class file :
+
+		<property name="cache.use_second_level_cache">true</property>
+		<property name="cache.region.factory_class">org.hibernate.cache.ehcache.internal.EhcacheRegionFactory</property>
+
+IN StudentNeo Class : 
+
+@Entity
+@Cacheable
+@Cache(usage = CacheConcurrencyStrategy.READ_ONLY)
+public class StudentNeo { }
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+cfg.addAnnotatedClass(Student.class);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

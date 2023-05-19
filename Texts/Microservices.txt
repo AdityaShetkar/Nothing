@@ -1,0 +1,50 @@
+
+Microservices :
+Microservices are an architectural and organizational approach to software development where an application is divided into many modules which is called as Services that communicates over well defined APIs.
+It is best way for integration.
+ 
+
+ServiceRegistry :
+A ServiceRegistry is a database to keep track of the available instances/objects of each microservice in an application.
+All microservice/services in an application register themselves in ServiceRegistry.
+After registering themselves services can be call by their name. So, in future IPAddress gets changed it doesn't matter we can call services by their name.
+
+
+=================================================================================================================================================
+								              Kafka
+=================================================================================================================================================
+What is a Messaging System?
+A Messaging System is responsible for transferring data from one application to another, so the applications can focus on data, but not worry about how to share it. Messages are queued asynchronously between client applications and messaging system.
+Two types of messaging patterns are available :
+
+1) Point to Point :
+    Msgs are persisted in a queue. One or more consumers can consume the msgs in the queue, but a particular msg can be consumed by a maximum of one consumer only.
+
+2) Publish-Subscribe (Pub-Sub) 
+    Msgs are persisted in a topic. Unlike point-to-point system, consumers can subscribe to one or more topic and consume all the msg in that topic. In the Publish-Subscribe system, msg producers are     called publishers and msg consumers are called subscribers.
+
+What is Apache Kafka?
+Apache Kafka is a distributed publish-subscribe messaging system. Kafka is suitable for both offline and online message consumption. Kafka messages are persisted on the disk and replicated within the cluster to prevent data loss. Kafka is built on top of the ZooKeeper synchronization service.
+
+
+Steps of Kafka :
+STEP 1: DOWNLOAD AND INSTALL KAFKA
+https://dlcdn.apache.org/kafka/3.2.0/...
+
+STEP 2: START THE KAFKA ENVIRONMENT
+# Start the ZooKeeper service
+.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
+
+# Start the Kafka broker service
+.\bin\windows\kafka-server-start.bat .\config\server.properties
+
+STEP 3: CREATE A TOPIC TO STORE YOUR EVENTS
+.\bin\windows\kafka-topics.bat --create --topic topic_demo --bootstrap-server localhost:9092
+
+STEP 4: WRITE SOME EVENTS INTO THE TOPIC
+.\bin\windows\kafka-console-producer.bat --topic topic_demo --bootstrap-server localhost:9092
+
+STEP 5:  READ THE EVENTS
+.\bin\windows\kafka-console-consumer.bat --topic topic_demo --from-beginning --bootstrap-server localhost:9092
+hello world
+topic demo

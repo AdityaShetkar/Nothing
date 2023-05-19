@@ -1,0 +1,42 @@
+collection is a interface.
+and collections is class.
+
+
+collections have various utility methods such as sorting,searching
+
+
+collection---> List-->ArrayList
+                list-->LinkedList
+                list--> Vector-->stack
+          --> set-->HashSet -->Linkedhashset
+                -->Sorted set-->navigableset
+
+Set duplicates are not allowed, in list allowed
+insertion ordered not preserved,in list preserved.
+
+
+
+
+When to use:
+1)If duplicates are allowed and insertion ordered need to be samed the List.
+2) if not then set.
+3)If we dont want duplicates but want insertion object then go for sorted set.OR if we want navigable also then go for navigable set.
+  and implemation class for this interface is treee set.
+
+
+
+ArrayList:
+
+ArrayList ar1 = neew ArrayList();
+To give capacity:
+ ArrayList ar1 = neew ArrayList(int siz);
+
+
+
+/*HashSet, LinkedHashSet, TreeSet*/
+			/*Set : unordered(insertion order not followed) , unique(duplicate overrides),non indexed
+			 * HashSet : unordered, null
+			 * LinkedHashSet: ordered, null
+			 * Treeset : unordered, sorted , null not allowed*/
+
+

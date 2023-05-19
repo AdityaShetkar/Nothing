@@ -1,0 +1,139 @@
+
+MongoDB :
+MongoDB is a document database and can be installed locally or hosted in the cloud.
+MongoDB is a document database which is often referred to as a non-relational database. This does not mean that relational data cannot be stored in document databases. It means that relational data is stored differently. A better way to refer to it is as a non-tabular database.
+Instead of having multiple tables you can simply keep all of your related data together.
+Every single object stored in MongoDB is called document.
+
+
+To enter the the MongoDB terminal : mongosh 
+
+
+Tables == Collections
+
+
+show databases == show dbs
+
+
+use databasename == use databasename
+
+
+show tables == show collections
+
+
+drop database databasename == db.dropDatabase()
+
+
+To clear screen : cls
+
+
+To exit from terminal : exit
+
+
+To get current database : db
+
+
+To insert data in collection : db.collectionname.insertOne({ name : "Adi"})
+insertOne() : T o insert a single data
+insertMany() : To insert many data
+
+
+To getAll data from collection : db.collectionname.find()
+
+
+We can store an Object inside an Object in MongoDB just like JSON : db.users.insertOne({ name : "Adii", age : 21, address : { city : Thane }, hobbies : ["Running"] })
+
+
+To get fixed no. of data : db.users.find().limit(n)
+
+
+To get sorted data by name : db.users.find().sort({ name : 1 or -1 }).limit(n) 
+where 1 for Ascending order and -1 for Descending order
+
+
+To use sort on multiple properties : db.users.find.sort({ age : -1, name : -1 })
+
+
+To skip some data : db.users.find().skip(n)
+
+
+To find with name : db.users.find({ name : 'Adi' })
+
+
+To get selective fields of data : db.users.find({ name : "Adi" }, { name : 1, age : 1 })
+
+
+To remove ObjectId :   db.users.find({ name : "Adi" }, { name : 1, age : 1, _id : -1 })
+where 1 is allowed field and -1 is not.
+
+
+To get all the field but _id : db.users.find({ name : "Adi" }, { _id : 0 })
+
+
+To get by name with complex type : db.users.find({ name : { $eq : "Adi} })
+where $ == complex query, eq == equal, ne == not equal
+
+
+To get age with complex type : db.users.find({ age : { $gt : 18 } })
+where $ == complex query, eq == equal, ne == not equal, gt == greater than, lt == less than, gte ==greater than equal, lte == less than equal
+
+
+To get data in : db.users.find({ name : { $in : ["Adi", "Sid"] } })
+
+
+To get data not in : db.users.find({ name : { $nin : ["Adi", "Sid"] } })
+
+
+To get all the objects which has age in it : db.users.find({ age : { $exists : true } })
+
+
+To get all the objects which don't have age in it : db.users.find({ age : { $exists : false } })
+
+
+To get user by age>20 and age<40 : db.users.find({ age : { $gte : 20, $lte : 40 } })
+
+
+To get user by age>20, age<40 and name == Adii : db.users.find({ age : { $gte : 20, $lte : 40 }, name : "Adii" })
+
+
+To get user by and query : db.users.find({ $and : [{ age : 26 }, { name : "Adii" }] })
+
+
+To get user with or query : db.users.find({ $or : [{ age : { $gte : 20 } }, { name : "Adii" }] })
+
+
+To get the users by age not less than equal to 20 with nor query : db.users.find({ age : { $not : { $lte : 20 } } })
+
+
+To compare two properties we use Expression query.
+db.user.find({ $expr : { $gt : ["$debt", "$balance"] } })
+
+
+To get the user by city : db.users.find({ "address.city" : "Thane" })
+
+
+To update any field's value : db.users.updateOne({ age : 21 }, { $set : { age : 22 } })
+
+
+To rename the property : db.users.updateOne({ _id : ObjectId("") }, { $rename : { name : "firstName"} })
+
+
+To remove property from an Object : db.users.updateOne({ _id : ObjectId("") }, { $unset : { age : "" } })
+
+
+To add something in an array : db.users.updateOne({ _id : ObjectId("") }, { $push : { hobbies : "Swimming" } })
+
+
+To remove something from an array : db.users.updateOne({ _id : ObjectId("") }, { $pull : { hobbies : "Swimming" } })
+
+
+To update multiple data : db.users.updateOne({ address : { $exists : true } }, { $uset : { address : "" } })
+
+
+To search and replace whole object : db.users.replaceOne({ age : 21 }, { name : "Aditya"})
+
+
+To delete one user : db.users.deleteOne({ name : "Aditya" })
+
+
+To delete multiple users : db.users.deleteMany({ age : { $exists : false } })

@@ -1,0 +1,51 @@
+spring:
+  main:
+    web-application-type: none
+  application:
+    name: cryptoCurrency-service
+  liquibase:
+    url: jdbc:postgresql://localhost:5432/crypto
+    change-log: classpath:liquibase/db-changelog-master.xml
+    password: root
+    user: postgres
+  datasource:
+    hikari:
+      connectionTimeout: '20000'
+      maximumPoolSize: '5'
+    password: root
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/crypto
+
+  jpa:
+    show:
+      sql: 'true'
+    hibernate:
+      ddl-auto: update
+eureka:
+  client:
+    fetchRegistry: 'true'
+    service-Url:
+      defaultZone: http://localhost:8761/eureka
+crypto:
+  service:
+    url: http://localhost:8081/api/v1/cryptoCurrency
+currency:
+  service:
+    url: http://localhost:8080/api/v1/currency
+
+
+management:
+  health:
+    circuitBreakers:
+      enabled : true
+  endpoints:
+    web:
+      exposure:
+        include: health
+
+  endpoint:
+    health:
+      show-details: always
+server:
+  port: '9091'
+

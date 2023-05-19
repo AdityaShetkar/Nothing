@@ -1,0 +1,84 @@
+
+Reactive Programming :
+
+
+
+Synchronous Programming :
+In synchronous programming, tasks are executed in order, one after the other, and cannot be interrupted until they are finished. Each task must wait for the previous task to finish executing before it can begin.
+
+
+Asynchronous Programming :
+In asynchronous programming, tasks can be executed in any order or even simultaneously. This approach works best when tasks are long, complex, or require multiple resources. Every task isn’t dependent on the previous task to finish before it can begin.
+
+
+Functional style code vs Rest code :
+
+Rest API code:
+public void deleteUser(Integer userId){
+           userRepository.deletById(userId);
+}
+
+Reactive Program functional style code:
+public Mono<User> deleteUser(Integer userId){
+           return userRepository.findById(userId)
+           .flatMap(existingUser => userRepository.delete(existingUser)
+           .then(Mono.just(existingUser)));
+}
+
+
+Backpressure in Reactive Streams:
+Backpressure in software systems is the capability to overload the traffic communication.
+Due to the non-blocking nature of Reactive Programming, the server doesn't send the complete stream at once. It can push the data concurrently as soon as it is available. Thus, the client waits less time to receive and process the events.
+
+
+Publisher or Producer :
+Publisher is a Data Source who will always publish an event.
+
+Method Signature :
+public interface Publisher<T>{
+           public void subscribe(Subscriber<? siper T> s);
+}
+
+
+Subscriber or Consumer :
+Subscriber will subscribe/consume the events from publisher.
+
+Method Signature :
+public interface Subscriber<T>{
+           public void onSubscribe(Subscription s);
+           public void o Next(T t);
+           public void onError(Throwable t);
+           public void onComplete();
+}
+
+
+Subscription :
+Subscription represets the unique relationship between a Subscriber and a Publisher.
+
+Method Signature :
+
+public interface Subscription{
+           public void request(long n);
+           public void cancel();
+}
+
+
+Processor :
+A processor represents a processing stage which is both a Subscriber and a Publisher and MUST obey the contracts of both.
+
+Method Signature :
+public interface Ptocessor<T, R> extends Subscriber<T>, Publisher<R>{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+

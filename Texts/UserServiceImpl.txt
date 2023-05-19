@@ -1,0 +1,143 @@
+package com.poc.security.service.impl;
+
+import com.poc.dto.UserDTO;
+import com.poc.entity.User;
+import com.poc.exception.ResourceNotFoundException;
+import com.poc.repo.UserRepo;
+import com.poc.security.service.UserService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
+
+@Service
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserRepo userRepo;
+
+
+    @Autowired
+    private ModelMapper modelMapper;
+
+    @Override
+    public UserDTO addUser(UserDTO userDTO) {
+        User user = this.dtoToUser(userDTO);
+        User savedUser = this.userRepo.save(user);
+        return this.userToDTO(user);
+    }
+
+    @Override
+    public UserDTO updateUser(UserDTO userDTO, int id) {
+        User user = this.userRepo.findById(id)
+                .orElseThrow(()->new ResourceNotFoundException("User","Id", id));
+
+        user.setEmail(userDTO.getEmail());
+        user.setPassword(userDTO.getPassword());
+        user.setFullName(userDTO.getFullName());
+        user.setCountry(userDTO.getCountry());
+        user.setState(userDTO.getState());
+        user.setDistrict(userDTO.getDistrict());
+        user.setPinCode(userDTO.getPinCode());
+        user.setAadhaarCard(userDTO.getAadhaarCard());
+        user.setPanCard(userDTO.getPanCard());
+        user.setCity(userDTO.getCity());
+        user.setMobileNo(userDTO.getMobileNo());
+
+        User updatedUser = this.userRepo.save(user);
+        UserDTO userDTO1 = this.userToDTO(updatedUser);
+        return userDTO1;
+    }
+
+    @Override
+    public List<UserDTO> getAllUsers() {
+        List<User> users = this.userRepo.findAll();
+        List<UserDTO> userDTOs = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        return userDTOs;
+    }
+
+    @Override
+    public UserDTO getUserById(int id) {
+        User user = this.userRepo.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("User","Id",id));
+        return this.userToDTO(user);
+    }
+
+    @Override
+    public List<UserDTO> getUserByEmail(String email) {
+        List<User> users = this.userRepo.findByEmail(email);
+
+        List<UserDTO> userDTOs = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        return userDTOs;
+    }
+
+    @Override
+    public List<UserDTO> getUserByUserName(String fullName) {
+        List<User> users = this.userRepo.findByFullName(fullName);
+
+        List<UserDTO> userDTOs = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        return userDTOs;
+    }
+
+    @Override
+    public List<UserDTO> getUserByCountry(String country) {
+        List<User> users = this.userRepo.findByCountry(country);
+
+        List<UserDTO> userDTOs = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        return userDTOs;
+    }
+
+    @Override
+    public List<UserDTO> getUserByState(String state) {
+        List<User> users = this.userRepo.findByState(state);
+
+        List<UserDTO> userDTOs = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        return userDTOs;
+    }
+
+    @Override
+    public List<UserDTO> getUserByAadhaar(String aadhaarCard) {
+        List<User> users = this.userRepo.findByAadhaarCard(aadhaarCard);
+
+        List<UserDTO> userDTOs = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        return userDTOs;
+    }
+
+    @Override
+    public List<UserDTO> getUserByPAN(String panCard) {
+        List<User> users = this.userRepo.findByPanCard(panCard);
+
+        List<UserDTO> userDTOs = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        return userDTOs;
+    }
+
+    @Override
+    public List<UserDTO> getUserByMobileNumber(String mobileNo) {
+        List<User> users = this.userRepo.findByMobileNo(mobileNo);
+
+        List<UserDTO> userDTOs = users.stream().map(user -> this.userToDTO(user)).collect(Collectors.toList());
+        return userDTOs;
+    }
+
+
+    @Override
+    public void deleteUser(int id) {
+        User user = this.userRepo.findById(id)
+                .orElseThrow(()-> new ResourceNotFoundException("User","Id", id));
+
+        this.userRepo.delete(user);
+    }
+
+    public User dtoToUser(UserDTO userDTO){
+        User user = this.modelMapper.map(userDTO, User.class);
+        return user;
+    }
+
+    public UserDTO userToDTO(User user){
+        UserDTO userDTO = this.modelMapper.map(user,UserDTO.class);
+        return userDTO;
+    }
+}

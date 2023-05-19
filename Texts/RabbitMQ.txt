@@ -1,0 +1,19 @@
+=================================================================================================================================================
+								            RabbitMQ
+=================================================================================================================================================
+
+What is Message Queue?
+Message Queue is nothing but the Queue which provides temporary storage to messages when the destination program is busy or not connected.
+A Message Queue is made up of a producer, a broker and a consumer.
+A message queue provides an asynchronous communication between application.
+
+
+What is RabbitMQ?
+RabbitMQ is a Message Queue software that acts as na intermediary platform where differnt applications can send and receive messages.
+
+
+What ia Queue?
+Queue is a buffer or storage in a RabbitMQ broker to store the messages.
+We can create any no. of Queue in RabbitMQ broker
+
+

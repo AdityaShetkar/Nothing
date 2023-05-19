@@ -1,0 +1,55 @@
+set path=C:\Program Files\Java\jdk-9.0.1\bin
+
+
+Static variale should be acces by class name
+
+Static block gets excuted first
+then constructors
+
+
+Main method is static so its gets called 1st by jvm. 
+not all static method called auotomaticalyy.
+One satic method can called another static method.
+
+If we declare method as abstract then th class must be abstract also.
+
+we cant create the object of the abstrac class.
+ to use the methods of abstract class,crate th object of the sub class of that abstract class.
+
+Example if circle is abstrat and circle is subclass so create the object of circle if we have to use in another clas.
+
+
+Interface:
+
+In nterface methods are by defaut public and abstract
+
+String:
+Literls VS Heap.
+
+
+
+
+In exception handling to print exception in deails:
+e.printStrackTrace();
+
+
+two types of error:
+1 checked (checked by compiler)
+2. unchecked(not checked by compiler).
+
+
+Wrapper class:
+it will convert primitive variable to object.
+Example:
+int num1 =10;
+Integer e1= num1;  // it also called boxing.
+
+class canot extend muliple classes,but through interface we can extends two classes i.e. implimenting two interfaces.
+
+1st extend then implement,if one class extending another class and one interface also;
+
+
+Functional interface:
+An Interface that contains exactly one abstract method is known as functional interface.
+ It can have any number of default, static methods but can contain only one abstract method.
+ It can also declare methods of object class.

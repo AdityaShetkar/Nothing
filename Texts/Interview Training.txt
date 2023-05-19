@@ -1,0 +1,6 @@
+
+Introduction : 
+
+Hi, I am Aditya Shetkar. I have completed my BSc in Computer Science from university of Mumbai. 
+Talking about my experience, I have total of 8 months of experience. I have worked on 3 projects so far in my career. These were in Banking, StockMarket and Finance domains.
+As far as my skillset is concerned, I have hand-on experience of working with Java, SpringBoot, Spring Security, JPA, Kafka, RabbitMQ, Microservices and Docker. That's about me! Thank you.
